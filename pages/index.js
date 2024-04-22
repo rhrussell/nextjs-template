@@ -44,8 +44,26 @@ const Home = ({ frontmatter }) => {
         </div>
       </section>
 
+      {/* workflow */}
+      <section className="section pb-0 bg-theme-light">
+        <div className="mb-8 text-center">
+          {markdownify(
+            workflow.title,
+            "h2",
+            "mx-auto max-w-[400px] font-bold leading-[44px]"
+          )}
+          {markdownify(workflow.description, "p", "mt-3")}
+        </div>
+        <Image
+          src={workflow.image}
+          alt="workflow image"
+          width={1920}
+          height={296}
+        />
+      </section>
+
       {/* Features */}
-      <section className="section bg-theme-light">
+      <section className="section">
         <div className="container">
           <div className="text-center">
             <h2>{markdownify(feature.title)}</h2>
@@ -81,7 +99,7 @@ const Home = ({ frontmatter }) => {
         return (
           <section
             key={`service-${index}`}
-            className={`section ${isOdd && "bg-theme-light"}`}
+            className={`section ${!isOdd && "bg-theme-light"}`}
           >
             <div className="container">
               <div className="items-center gap-8 md:grid md:grid-cols-2">
@@ -136,24 +154,6 @@ const Home = ({ frontmatter }) => {
           </section>
         );
       })}
-
-      {/* workflow */}
-      <section className="section pb-0">
-        <div className="mb-8 text-center">
-          {markdownify(
-            workflow.title,
-            "h2",
-            "mx-auto max-w-[400px] font-bold leading-[44px]"
-          )}
-          {markdownify(workflow.description, "p", "mt-3")}
-        </div>
-        <Image
-          src={workflow.image}
-          alt="workflow image"
-          width={1920}
-          height={296}
-        />
-      </section>
 
       {/* Cta */}
       <Cta cta={call_to_action} />
